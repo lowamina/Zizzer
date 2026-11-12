@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZIZZER.lk | Men's Clothing Sri Lanka – Concept Demo</title>
+  <meta name="description" content="ZIZZER.lk – attractive and trending men's clothing with island-wide delivery in Sri Lanka. Shirts, T-shirts, trousers and bags. Order on WhatsApp.">
+  <!-- Demo only: stops Google from listing this page. REMOVE when the real site goes live. -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0b0b0b;
+      --coal: #161616;
+      --ivory: #f6f2ea;
+      --stone: #e9e3d7;
+      --gold: #c9a24a;
+      --gold-soft: #e3c983;
+      --muted: #8a8478;
+      --line: #2a2a2a;
+    }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: 'Montserrat', sans-serif; background: var(--ivory); color: var(--black); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; }
+    em { color: var(--gold); font-style: italic; font-weight: 500; }
+    section { padding: 96px 0; }
+    .muted { color: var(--muted); }
+    .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); }
+    .title { font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.05; }
+
+    .demo-line { background: var(--gold); color: var(--black); text-align: center; font-size: .78rem; padding: 6px; font-weight: 600; letter-spacing: .5px; }
+    .ticker { background: var(--black); color: var(--gold-soft); font-size: .75rem; letter-spacing: 3px; text-transform: uppercase; padding: 9px 0; text-align: center; }
+
+    /* Nav */
+    .navbar { background: rgba(246,242,234,.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--stone); }
+    .navbar-brand { display: flex; align-items: center; gap: 10px; font-family: 'Cormorant Garamond'; font-weight: 700; font-size: 1.6rem; letter-spacing: 3px; color: var(--black) !important; }
+    .navbar-brand img { width: 46px; height: 46px; }
+    .navbar .nav-link { color: var(--black) !important; font-size: .78rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+    .navbar .nav-link:hover { color: var(--gold) !important; }
+    .bag-btn { position: relative; background: var(--black); color: #fff; border: 0; border-radius: 40px; padding: 9px 18px; font-size: .8rem; font-weight: 700; letter-spacing: 1px; }
+    .bag-btn .count { background: var(--gold); color: var(--black); border-radius: 20px; padding: 1px 8px; margin-left: 6px; }
+
+    .btn-gold { background: var(--gold); color: var(--black); border: 0; border-radius: 0; padding: 14px 30px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: .8rem; }
+    .btn-gold:hover { background: var(--gold-soft); color: var(--black); }
+    .btn-dark2 { background: var(--black); color: #fff; border: 0; border-radius: 0; padding: 14px 30px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: .8rem; }
+    .btn-dark2:hover { background: #2a2a2a; color: #fff; }
+    .btn-outline2 { background: transparent; color: var(--black); border: 1.5px solid var(--black); border-radius: 0; padding: 13px 28px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: .8rem; }
+    .btn-outline2:hover { background: var(--black); color: #fff; }
+
+    /* Hero */
+    .hero { background: var(--black); color: #fff; padding: 0; overflow: hidden; }
+    .hero .row { min-height: 600px; }
+    .hero h1 { color: #fff; font-size: clamp(3rem, 7vw, 5.8rem); line-height: .98; }
+    .hero-side { position: relative; height: 100%; min-height: 420px; background: radial-gradient(ellipse at 50% 40%, #2a2419, #0b0b0b 70%); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
+    .hero-side img.logo-big { width: 62%; max-width: 330px; filter: drop-shadow(0 0 60px rgba(201,162,74,.35)); }
+    .hero-side.has-img img.logo-big { display: none; }
+    .hero-side::before { content: ''; position: absolute; inset: 26px; border: 1px solid rgba(201,162,74,.45); pointer-events: none; }
+    .perks { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 34px; font-size: .78rem; letter-spacing: 1px; color: #cfc8b8; }
+    .perks i { color: var(--gold); margin-right: 6px; }
+
+    /* Shop */
+    .tabs { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+    .tab { background: transparent; border: 0; border-bottom: 2px solid transparent; padding: 8px 14px; font-size: .78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .tab.on, .tab:hover { color: var(--black); border-bottom-color: var(--gold); }
+    .prod { background: #fff; height: 100%; display: flex; flex-direction: column; transition: .25s; }
+    .prod:hover { box-shadow: 0 18px 40px rgba(0,0,0,.1); transform: translateY(-4px); }
+    .prod .pic { aspect-ratio: 1/1; background: linear-gradient(160deg, #1d1d1d, #0b0b0b); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; position: relative; }
+    .prod .pic svg { width: 46%; height: 46%; }
+    .prod .pic.has-img svg { display: none; }
+    .prod .tag { position: absolute; top: 12px; left: 12px; background: var(--gold); color: var(--black); font-size: .65rem; font-weight: 700; letter-spacing: 1.5px; padding: 4px 9px; text-transform: uppercase; }
+    .prod .info { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+    .prod h4 { font-size: 1.35rem; margin-bottom: 2px; }
+    .prod .price { font-weight: 700; margin-bottom: 12px; }
+    .sz { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .sz button { border: 1px solid #d6cfc0; background: #fff; min-width: 40px; padding: 6px 8px; font-size: .75rem; font-weight: 700; }
+    .sz button.on { background: var(--black); color: #fff; border-color: var(--black); }
+    .add { margin-top: auto; }
+    .add.done { background: var(--gold); color: var(--black); }
+
+    /* Size finder */
+    .finder { background: var(--black); color: #fff; }
+    .finder h2 { color: #fff; }
+    .fbox { border: 1px solid var(--line); background: var(--coal); padding: 30px; }
+    .fbox label { font-size: .72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-soft); font-weight: 700; margin-bottom: 6px; display: block; }
+    .fbox .form-control, .fbox .form-select { background: #0f0f0f; border: 1px solid #333; color: #fff; border-radius: 0; padding: 11px 12px; }
+    .fbox .form-control:focus, .fbox .form-select:focus { border-color: var(--gold); box-shadow: none; }
+    .fbox .form-control::placeholder { color: #666; }
+    .result { border: 1px solid var(--gold); padding: 22px; text-align: center; margin-top: 18px; }
+    .result b { font-family: 'Cormorant Garamond'; font-size: 3.4rem; line-height: 1; color: var(--gold); display: block; }
+    .chart { width: 100%; font-size: .85rem; color: #cfc8b8; }
+    .chart th { color: var(--gold-soft); font-weight: 600; letter-spacing: 1px; font-size: .72rem; text-transform: uppercase; padding: 8px 6px; border-bottom: 1px solid #333; }
+    .chart td { padding: 9px 6px; border-bottom: 1px solid #222; }
+
+    /* Why */
+    .why { text-align: center; padding: 26px 16px; }
+    .why i { font-size: 2rem; color: var(--gold); }
+    .why h4 { font-size: 1.4rem; margin: 12px 0 4px; }
+    .why p { color: var(--muted); margin: 0; font-size: .92rem; }
+
+    /* Bag drawer */
+    .shade { position: fixed; inset: 0; background: rgba(0,0,0,.5); opacity: 0; pointer-events: none; transition: .3s; z-index: 1050; }
+    .drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100%); background: var(--ivory); transform: translateX(100%); transition: .35s; z-index: 1060; display: flex; flex-direction: column; }
+    .open .shade { opacity: 1; pointer-events: auto; }
+    .open .drawer { transform: none; }
+    .drawer .head { background: var(--black); color: #fff; padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; }
+    .drawer .head h4 { color: #fff; margin: 0; letter-spacing: 2px; }
+    .drawer .head button { background: none; border: 0; color: #fff; font-size: 1.6rem; line-height: 1; }
+    .drawer .body { padding: 20px 22px; overflow-y: auto; flex: 1; }
+    .line-item { display: flex; justify-content: space-between; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--stone); font-size: .9rem; }
+    .line-item .q { display: flex; align-items: center; gap: 6px; }
+    .line-item .q button { width: 26px; height: 26px; border: 1px solid #bbb; background: #fff; line-height: 1; padding: 0; }
+    .sum { display: flex; justify-content: space-between; padding: 5px 0; font-size: .92rem; }
+    .sum.total { font-weight: 700; font-size: 1.1rem; border-top: 1px solid var(--black); margin-top: 6px; padding-top: 10px; }
+    .drawer .form-control, .drawer .form-select { border-radius: 0; border-color: #d6cfc0; padding: 10px; font-size: .9rem; }
+
+    /* Contact & footer */
+    .c-line { display: flex; gap: 14px; margin-bottom: 16px; }
+    .c-line i { color: var(--gold); font-size: 1.2rem; }
+    .c-line a { color: var(--black); text-decoration: none; }
+    .areas span { display: inline-block; border: 1px solid #d6cfc0; padding: 5px 12px; margin: 0 6px 8px 0; font-size: .8rem; }
+    footer { background: var(--black); color: #8a8478; padding: 30px 0; font-size: .88rem; }
+    footer img { width: 40px; height: 40px; }
+
+    .wa { position: fixed; right: 18px; bottom: 18px; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; z-index: 999; box-shadow: 0 6px 20px rgba(0,0,0,.3); }
+    .wa:hover { color: #fff; }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: .7s ease; }
+    .reveal.show { opacity: 1; transform: none; }
+    @media (max-width: 991px) { .hero .row { min-height: 0; } .hero-text { padding: 60px 12px 40px; } }
+  </style>
+</head>
+<body>
+
+  <!-- DEMO NOTICE: remove after the owner approves -->
+  <div class="demo-line">Concept demo for ZIZZER.lk · products, prices and photos are samples</div>
+  <div class="ticker">Island-wide delivery · Cash on delivery · New arrivals every week</div>
+
+  <!-- ===== NAV ===== -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home"><img src="logo.png" alt="ZIZZER logo"> ZIZZER</a>
+      <div class="d-flex align-items-center gap-2 order-lg-3">
+        <button class="bag-btn" onclick="toggleBag(true)"><i class="bi bi-bag"></i> BAG<span class="count" id="bagCount">0</span></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      </div>
+      <div class="collapse navbar-collapse order-lg-2" id="nav">
+        <ul class="navbar-nav ms-auto me-lg-3 gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="#size">Size Finder</a></li>
+          <li class="nav-item"><a class="nav-link" href="#delivery">Delivery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" id="home">
+    <div class="container-fluid">
+      <div class="row align-items-stretch">
+        <div class="col-lg-6 d-flex align-items-center hero-text reveal">
+          <div class="ms-lg-auto px-lg-5" style="max-width:600px">
+            <div class="eyebrow mb-3">Est. 2019 · Sri Lanka</div>
+            <h1>Dress sharp.<br><em>Stand out.</em></h1>
+            <p class="lead my-4" style="color:#cfc8b8">Attractive and trending men's fashion with the best customer satisfaction. Shirts, T-shirts, trousers and bags, delivered anywhere in Sri Lanka.</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#shop" class="btn btn-gold">Shop New Arrivals</a>
+              <a href="#size" class="btn btn-outline2" style="color:#fff;border-color:#fff">Find my size</a>
+            </div>
+            <div class="perks">
+              <span><i class="bi bi-truck"></i>Island-wide delivery</span>
+              <span><i class="bi bi-cash-coin"></i>Cash on delivery</span>
+              <span><i class="bi bi-people"></i>18K+ followers</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 p-0 reveal"><div class="hero-side" data-img="hero.jpg"><img src="logo.png" alt="ZIZZER" class="logo-big"></div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SHOP ===== -->
+  <section id="shop">
+    <div class="container">
+      <div class="text-center mb-4 reveal"><div class="eyebrow">New arrivals · limited stock</div><h2 class="title mt-2">The <em>collection</em></h2><p class="muted">Sample products and prices. ZIZZER's real stock goes here.</p></div>
+      <div class="tabs mb-4 reveal" id="tabs">
+        <button class="tab on" data-c="all">All</button><button class="tab" data-c="shirts">Shirts</button><button class="tab" data-c="tees">T-Shirts</button><button class="tab" data-c="pants">Trousers</button><button class="tab" data-c="bags">Bags</button>
+      </div>
+      <div class="row g-4" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== SIZE FINDER ===== -->
+  <section class="finder" id="size">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5 reveal">
+          <div class="eyebrow">Free tool</div>
+          <h2 class="title mt-2">Find your <em>perfect fit</em></h2>
+          <p style="color:#cfc8b8" class="mt-3">Not sure which size to order online? Measure around your chest and waist with a tape, and we'll suggest your size.</p>
+          <table class="chart mt-3">
+            <thead><tr><th>Size</th><th>Chest (in)</th><th>Waist (in)</th></tr></thead>
+            <tbody><tr><td>S</td><td>36 – 38</td><td>28 – 30</td></tr><tr><td>M</td><td>38 – 40</td><td>30 – 32</td></tr><tr><td>L</td><td>40 – 42</td><td>32 – 34</td></tr><tr><td>XL</td><td>42 – 44</td><td>34 – 36</td></tr><tr><td>XXL</td><td>44 – 46</td><td>36 – 38</td></tr></tbody>
+          </table>
+          <small class="muted d-block mt-2">Sample size chart. ZIZZER's own chart goes here.</small>
+        </div>
+        <div class="col-lg-7 reveal">
+          <div class="fbox">
+            <div class="row g-3">
+              <div class="col-md-4"><label>Chest (inches)</label><input id="chest" type="number" class="form-control" placeholder="e.g. 39"></div>
+              <div class="col-md-4"><label>Waist (inches)</label><input id="waist" type="number" class="form-control" placeholder="e.g. 32"></div>
+              <div class="col-md-4"><label>I like my fit</label><select id="fit" class="form-select"><option value="0">Regular</option><option value="-1">Slim / tight</option><option value="1">Loose / relaxed</option></select></div>
+              <div class="col-12"><button class="btn btn-gold w-100" onclick="findSize()">Find my size</button></div>
+            </div>
+            <div id="sizeOut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY / DELIVERY ===== -->
+  <section id="delivery">
+    <div class="container">
+      <div class="text-center mb-4 reveal"><div class="eyebrow">Stay home · shop online</div><h2 class="title mt-2">Why <em>ZIZZER</em></h2></div>
+      <div class="row g-3 mb-5">
+        <div class="col-md-6 col-lg-3 reveal"><div class="why"><i class="bi bi-stars"></i><h4>Trending designs</h4><p>New styles added all the time.</p></div></div>
+        <div class="col-md-6 col-lg-3 reveal"><div class="why"><i class="bi bi-truck"></i><h4>Island-wide delivery</h4><p>From Colombo to Jaffna and Galle.</p></div></div>
+        <div class="col-md-6 col-lg-3 reveal"><div class="why"><i class="bi bi-cash-coin"></i><h4>Cash on delivery</h4><p>Pay when your order arrives.</p></div></div>
+        <div class="col-md-6 col-lg-3 reveal"><div class="why"><i class="bi bi-emoji-smile"></i><h4>Happy customers</h4><p>Best customer satisfaction since 2019.</p></div></div>
+      </div>
+      <div class="text-center reveal">
+        <div class="eyebrow mb-3">We deliver to</div>
+        <div class="areas"><span>Colombo</span><span>Kandy</span><span>Galle</span><span>Matara</span><span>Kurunegala</span><span>Anuradhapura</span><span>Polonnaruwa</span><span>Sigiriya</span><span>Nuwara Eliya</span><span>Jaffna</span><span>and all over Sri Lanka</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="pt-0">
+    <div class="container">
+      <div class="row g-4 align-items-center" style="background:#fff;padding:40px 24px;margin:0">
+        <div class="col-lg-6 reveal">
+          <div class="eyebrow">Talk to us</div>
+          <h2 class="title mt-2 mb-4">Order or ask <em>anything</em></h2>
+          <div class="c-line"><i class="bi bi-whatsapp"></i><a href="https://wa.me/94716469281" target="_blank">+94 71 646 9281 (WhatsApp)</a></div>
+          <div class="c-line"><i class="bi bi-telephone-fill"></i><a href="tel:+94716469281">+94 71 646 9281</a></div>
+          <div class="c-line"><i class="bi bi-facebook"></i><span>ZIZZER.lk on Facebook</span></div>
+          <div class="c-line"><i class="bi bi-clock-fill"></i><div>Order hours <span class="muted small">(to be confirmed)</span></div></div>
+        </div>
+        <div class="col-lg-6 text-lg-end reveal">
+          <a href="https://wa.me/94716469281?text=Hi%20ZIZZER!%20I'd%20like%20to%20know%20about%20your%20new%20arrivals." target="_blank" class="btn btn-dark2 mb-2"><i class="bi bi-whatsapp me-2"></i>Chat on WhatsApp</a><br>
+          <a href="#shop" class="btn btn-outline2">Browse the collection</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <span class="d-flex align-items-center gap-2"><img src="logo.png" alt=""> <b class="text-white" style="letter-spacing:3px">ZIZZER.lk</b></span>
+      <span>&copy; <span id="yr"></span> ZIZZER.lk · Sri Lanka</span>
+      <span>Website by Lowamina Pigera</span>
+    </div>
+  </footer>
+
+  <!-- ===== BAG DRAWER ===== -->
+  <div id="bagWrap">
+    <div class="shade" onclick="toggleBag(false)"></div>
+    <aside class="drawer" aria-label="Shopping bag">
+      <div class="head"><h4>YOUR BAG</h4><button onclick="toggleBag(false)" aria-label="Close">&times;</button></div>
+      <div class="body">
+        <div id="bagItems"></div>
+        <div id="bagForm"></div>
+      </div>
+    </aside>
+  </div>
+
+  <a href="https://wa.me/94716469281" target="_blank" class="wa" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const WHATSAPP = '94716469281';
+    const DELIVERY_FEE = 400, FREE_OVER = 10000;   // sample delivery rule
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const rs = n => 'Rs. ' + n.toLocaleString('en-LK');
+
+    // Simple line drawings used until real product photos are added
+    const ART = {
+      shirt: '<path d="M22 8l-14 8 6 12 6-3v31h24V25l6 3 6-12-14-8-10 8z"/><path d="M32 16v40M22 8l10 8 10-8"/>',
+      tee:   '<path d="M22 8l-14 8 6 12 6-3v31h24V25l6 3 6-12-14-8c-2 4-6 6-10 6s-8-2-10-6z"/>',
+      pants: '<path d="M18 6h28l4 52H38l-6-34-6 34H14z"/><path d="M18 12h28"/>',
+      bag:   '<path d="M8 26h48l-4 26H12z"/><path d="M22 26c0-8 4-12 10-12s10 4 10 12"/>'
+    };
+    const svg = t => `<svg viewBox="0 0 64 64" fill="none" stroke="#c9a24a" stroke-width="1.6" stroke-linejoin="round">${ART[t]}</svg>`;
+
+    const TOPS = ['S', 'M', 'L', 'XL', 'XXL'], WAIST = ['28', '30', '32', '34', '36'];
+    const PRODUCTS = [
+      { name: 'Classic Oxford Shirt',     cat: 'shirts', art: 'shirt', price: 3450, sizes: TOPS, tag: 'New' },
+      { name: 'Linen Short Sleeve Shirt', cat: 'shirts', art: 'shirt', price: 2950, sizes: TOPS },
+      { name: 'Essential Crew Neck Tee',  cat: 'tees',   art: 'tee',   price: 1650, sizes: TOPS, tag: 'Best seller' },
+      { name: 'Premium Polo Tee',         cat: 'tees',   art: 'tee',   price: 2250, sizes: TOPS },
+      { name: 'Slim Fit Chinos',          cat: 'pants',  art: 'pants', price: 3950, sizes: WAIST },
+      { name: 'Stretch Denim Jeans',      cat: 'pants',  art: 'pants', price: 4450, sizes: WAIST, tag: 'Limited' },
+      { name: 'Gym Duffel Bag',           cat: 'bags',   art: 'bag',   price: 3500, sizes: ['One size'], tag: 'Limited' },
+      { name: 'Formal Trousers',          cat: 'pants',  art: 'pants', price: 3750, sizes: WAIST }
+    ];
+
+    // ---- Product grid ----
+    document.getElementById('grid').innerHTML = PRODUCTS.map((p, i) => `
+      <div class="col-6 col-lg-3 reveal prod-col" data-c="${p.cat}">
+        <div class="prod">
+          <div class="pic" data-img="p${i + 1}.jpg">${p.tag ? `<span class="tag">${p.tag}</span>` : ''}${svg(p.art)}</div>
+          <div class="info">
+            <h4>${p.name}</h4>
+            <div class="price">${rs(p.price)}</div>
+            <div class="sz" data-p="${i}">${p.sizes.map((s, k) => `<button type="button" class="${p.sizes.length === 1 ? 'on' : ''}" data-s="${s}">${s}</button>`).join('')}</div>
+            <button class="btn btn-dark2 add w-100" data-p="${i}">Add to bag</button>
+          </div>
+        </div>
+      </div>`).join('');
+
+    document.querySelectorAll('.sz').forEach(g => g.addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      g.querySelectorAll('button').forEach(x => x.classList.remove('on')); b.classList.add('on');
+    }));
+
+    document.querySelectorAll('#tabs .tab').forEach(t => t.addEventListener('click', () => {
+      document.querySelectorAll('#tabs .tab').forEach(x => x.classList.remove('on')); t.classList.add('on');
+      document.querySelectorAll('.prod-col').forEach(c => c.classList.toggle('d-none', t.dataset.c !== 'all' && c.dataset.c !== t.dataset.c));
+    }));
+
+    // ---- Bag ----
+    let bag = [];   // { p: product index, s: size, q: qty }
+    document.querySelectorAll('.add').forEach(btn => btn.addEventListener('click', () => {
+      const i = +btn.dataset.p, chosen = document.querySelector(`.sz[data-p="${i}"] button.on`);
+      if (!chosen) { btn.textContent = 'Choose a size first'; setTimeout(() => btn.textContent = 'Add to bag', 1400); return; }
+      const s = chosen.dataset.s, found = bag.find(x => x.p === i && x.s === s);
+      if (found) found.q++; else bag.push({ p: i, s, q: 1 });
+      btn.classList.add('done'); btn.textContent = 'Added ✓';
+      setTimeout(() => { btn.classList.remove('done'); btn.textContent = 'Add to bag'; }, 1200);
+      drawBag();
+    }));
+
+    function changeQty(k, d) { bag[k].q += d; if (bag[k].q <= 0) bag.splice(k, 1); drawBag(); }
+    function toggleBag(open) { document.getElementById('bagWrap').classList.toggle('open', open); }
+
+    function totals() {
+      const sub = bag.reduce((a, x) => a + PRODUCTS[x.p].price * x.q, 0);
+      const fee = sub === 0 || sub >= FREE_OVER ? 0 : DELIVERY_FEE;
+      return { sub, fee, total: sub + fee };
+    }
+
+    function drawBag() {
+      document.getElementById('bagCount').textContent = bag.reduce((a, x) => a + x.q, 0);
+      const items = document.getElementById('bagItems'), form = document.getElementById('bagForm');
+      if (!bag.length) { items.innerHTML = '<p class="muted text-center my-5">Your bag is empty.<br>Add something you like!</p>'; form.innerHTML = ''; return; }
+      const t = totals();
+      items.innerHTML = bag.map((x, k) => `
+        <div class="line-item">
+          <div><b>${PRODUCTS[x.p].name}</b><br><span class="muted">Size ${x.s} · ${rs(PRODUCTS[x.p].price)}</span></div>
+          <div class="q"><button onclick="changeQty(${k},-1)">−</button><span>${x.q}</span><button onclick="changeQty(${k},1)">+</button></div>
+        </div>`).join('') + `
+        <div class="mt-3">
+          <div class="sum"><span>Subtotal</span><span>${rs(t.sub)}</span></div>
+          <div class="sum"><span>Delivery</span><span>${t.fee ? rs(t.fee) : 'FREE'}</span></div>
+          <div class="sum total"><span>Total</span><span>${rs(t.total)}</span></div>
+          ${t.fee ? `<small class="muted">Free delivery on orders over ${rs(FREE_OVER)}</small>` : ''}
+        </div>`;
+      if (!form.innerHTML) form.innerHTML = `
+        <div class="mt-4">
+          <div class="eyebrow mb-2">Delivery details</div>
+          <input id="oName" class="form-control mb-2" placeholder="Your name">
+          <input id="oPhone" class="form-control mb-2" placeholder="Phone number">
+          <textarea id="oAddr" class="form-control mb-2" rows="2" placeholder="Delivery address"></textarea>
+          <select id="oCity" class="form-select mb-2"><option>Colombo</option><option>Gampaha</option><option>Kandy</option><option>Galle</option><option>Matara</option><option>Kurunegala</option><option>Anuradhapura</option><option>Polonnaruwa</option><option>Nuwara Eliya</option><option>Jaffna</option><option>Other district</option></select>
+          <select id="oPay" class="form-select mb-3"><option>Cash on delivery</option><option>Bank transfer</option></select>
+          <button class="btn btn-gold w-100" onclick="placeOrder()"><i class="bi bi-whatsapp me-2"></i>Order on WhatsApp</button>
+          <small id="oMsg" class="d-block mt-2 text-danger"></small>
+        </div>`;
+    }
+    drawBag();
+
+    function placeOrder() {
+      const v = id => document.getElementById(id).value.trim(), msg = document.getElementById('oMsg');
+      if (!v('oName') || !v('oPhone') || !v('oAddr')) { msg.textContent = 'Please fill in your name, phone and address.'; return; }
+      msg.textContent = '';
+      const t = totals();
+      const lines = bag.map(x => `• ${PRODUCTS[x.p].name} (Size ${x.s}) × ${x.q} = ${rs(PRODUCTS[x.p].price * x.q)}`).join('\n');
+      const text = `Hi ZIZZER! I'd like to place an order.\n\n${lines}\n\nSubtotal: ${rs(t.sub)}\nDelivery: ${t.fee ? rs(t.fee) : 'FREE'}\nTotal: ${rs(t.total)}\n\nName: ${v('oName')}\nPhone: ${v('oPhone')}\nAddress: ${v('oAddr')}, ${v('oCity')}\nPayment: ${v('oPay')}`;
+      window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    // ---- Size finder ----
+    function findSize() {
+      const chest = +document.getElementById('chest').value, waist = +document.getElementById('waist').value, fit = +document.getElementById('fit').value;
+      const out = document.getElementById('sizeOut');
+      if (!(chest >= 30 && chest <= 54) && !(waist >= 24 && waist <= 46)) { out.innerHTML = '<p class="mt-3 mb-0" style="color:#e3c983">Please enter your chest (30–54 in) and/or waist (24–46 in).</p>'; return; }
+      let html = '<div class="row g-3">';
+      if (chest >= 30 && chest <= 54) {
+        let k = chest < 38 ? 0 : chest < 40 ? 1 : chest < 42 ? 2 : chest < 44 ? 3 : 4;
+        k = Math.min(4, Math.max(0, k + fit));
+        const note = chest > 46 ? 'May be bigger than our XXL. Ask us on WhatsApp.' : chest < 36 ? 'Our S may feel a little loose.' : 'Shirts and T-shirts';
+        html += `<div class="col-sm-6"><div class="result"><small class="eyebrow">Tops</small><b>${TOPS[k]}</b><small style="color:#cfc8b8">${note}</small></div></div>`;
+      }
+      if (waist >= 24 && waist <= 46) {
+        let w = Math.round(waist / 2) * 2; w = Math.min(36, Math.max(28, w));
+        const note = waist > 37 ? 'May be bigger than size 36. Ask us on WhatsApp.' : 'Trousers and jeans (waist)';
+        html += `<div class="col-sm-6"><div class="result"><small class="eyebrow">Trousers</small><b>${w}</b><small style="color:#cfc8b8">${note}</small></div></div>`;
+      }
+      out.innerHTML = html + '</div>';
+    }
+
+    // Photo slots: put photos in the "img" folder (see img/PHOTOS.txt) and they appear
+    document.querySelectorAll('[data-img]').forEach(el => {
+      const src = 'img/' + el.dataset.img, test = new Image();
+      test.onload = () => { el.style.backgroundImage = `url("${src}")`; el.classList.add('has-img'); };
+      test.src = src;
+    });
+
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+    }), { threshold: .1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
